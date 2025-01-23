@@ -5,7 +5,10 @@
   font-family: Arial, sans-serif;
   position: relative;
 }
-
+.tite {
+  color: blue;
+  text-align: center;
+}
 /* Bouton menu */
 .menu-toggle {
   position: absolute;

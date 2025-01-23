@@ -12,7 +12,7 @@ const Accueil = () => {
 
   return (
     <div className="container">
-      <h1>Films Populaires</h1>
+      <h1 className="tite">Films Populaires</h1>
       <div className="row">
         {films.map((film) => (
           <div className="col-md-4" key={film.id}>
