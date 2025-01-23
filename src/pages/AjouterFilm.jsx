@@ -8,26 +8,32 @@ const AjouterFilm = () => {
 
   const handleAjoutFilm = (e) => {
     e.preventDefault();
-
+  
     if (!titre || !description) {
       setMessage("Veuillez remplir tous les champs obligatoires.");
       return;
     }
-
+  
     const nouveauFilm = {
-      id: Date.now(), // Génération d'un ID unique pour la liste locale
+      id: Date.now(), // Génération d'un ID unique
       title: titre,
       description,
       release_date: dateSortie || "Non spécifiée",
     };
-
-    // Simule l'ajout à une base de données ou une liste locale
-    console.log("Film ajouté :", nouveauFilm);
+  
+    // Récupérer les films existants du localStorage
+    const filmsExistants = JSON.parse(localStorage.getItem("filmsAjoutes")) || [];
+    filmsExistants.push(nouveauFilm);
+  
+    // Enregistrer les films mis à jour dans le localStorage
+    localStorage.setItem("filmsAjoutes", JSON.stringify(filmsExistants));
+  
     setMessage("Le film a été ajouté avec succès !");
     setTitre("");
     setDescription("");
     setDateSortie("");
   };
+  
 
   return (
     <div className="container mt-4">
